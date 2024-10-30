@@ -1,0 +1,243 @@
+
+
+/* Variables CSS */
+:root {
+    --color-principal: #c73427; /* Color principal */
+    --color-secundario: #000000; /* Color secundario */
+    --color-fondo: #faf3e0; /* Color de fondo */
+    --color-texto: #333; /* Color del texto */
+    --color-texto-blanco: #ffffff; /* Color de texto blanco */
+    --color-sombra: rgba(0, 0, 0, 0.1); /* Color de sombra */
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex; /* Usamos Flexbox */
+    flex-direction: column; /* Colocamos los elementos en columna */
+    min-height: 100vh; /* Aseguramos que el body tenga al menos la altura de la ventana */
+    background: linear-gradient(to bottom, #eef2f3, var(--color-fondo)); /* Fondo degradado */
+    color: var(--color-texto); /* Color de texto principal */
+    line-height: 1.6;
+}
+
+/* Encabezado */
+#main-header {
+    background-color: var(--color-principal); /* Color de encabezado atractivo */
+    color: var(--color-texto-blanco); /* Color del texto del encabezado */
+    padding: 2rem; /* Espaciado ampliado */
+    text-align: center;
+    border-bottom: 4px solid #f8c291; /* Línea decorativa inferior */
+    box-shadow: 0 2px 5px var(--color-sombra); /* Sombra suave */
+}
+
+#main-header h1 {
+    font-size: 3rem; /* Aumenta el tamaño de la fuente */
+}
+
+/* Pseudo-elementos antes y después del encabezado h1 */
+#main-header h1::before {
+    content: "🎨 ";
+}
+
+#main-header h1::after {
+    content: " 🎨";
+}
+
+/* Navegación */
+.nav-menu ul {
+    list-style-type: none;
+}
+
+.nav-menu li {
+    display: inline-block;
+    margin: 0 1.5rem; /* Espaciado entre elementos */
+}
+
+/* Estilo para los enlaces de navegación */
+.nav-menu a {
+    color: var(--color-texto-blanco); /* Color de los enlaces */
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease; /* Transición suave para hover */
+    font-size: 1.5rem; /* Aumenta el tamaño de fuente de los enlaces */
+    padding: 0.5rem 1rem; /* Espaciado interno para botones más grandes */
+    border-radius: 5px; /* Bordes redondeados para un aspecto más suave */
+}
+
+/* Efecto hover para los enlaces */
+.nav-menu a:hover {
+    color: #f8c291; /* Color al pasar el ratón */
+    transform: scale(1.1); /* Efecto de aumento */
+}
+
+/* Estilo para inputs con focus */
+input:focus {
+    border: 2px solid var(--color-secundario); /* Cambia el borde al hacer clic */
+    box-shadow: 0 0 5px rgba(255, 111, 97, 0.5); /* Sombra colorida */
+    outline: none; /* Quita el contorno predeterminado */
+}
+
+/* Galería */
+.obras {
+    display: flex; /* Fallback básico */
+    flex-wrap: wrap;
+    gap: 30px; /* Mayor espacio entre elementos */
+    justify-content: center;
+    flex: 1; /* Permite que la galería ocupe el espacio disponible */
+}
+
+#MiColeccion {
+    text-align: center; /* Centra el texto */
+    margin: 1rem; /* Margen alrededor */
+    font-family:'Arial Black', sans-serif;/* Tipografía serif */
+    font-size: 2rem; /* Tamaño de fuente grande */
+    color: #0e0c0c; /* Color atractivo */
+    font-weight: bold; /* Texto en negrita */
+    padding: 1rem; /* Espaciado interno para más aire */
+    border-bottom: 2px solid #f8c291; /* Línea decorativa inferior */
+}
+#galeria{
+    text-align: center; /* Centra el texto */
+    margin: 2rem 0; /* Espaciado superior e inferior */
+    font-size: 1.5rem; /* Tamaño de fuente */
+    color: #c73427; /* Color atractivo */
+
+}
+/* Uso de @supports para aplicar grid en navegadores compatibles */
+@supports (display: grid) {
+    .obras {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajuste de tamaño */
+        gap: 30px;
+    }
+}
+
+.obra img {
+    border-radius: 10px; /* Bordes redondeados para las imágenes */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+.obra img:hover {
+    transform: scale(1.05); /* Aumento suave al pasar el ratón */
+    box-shadow: 0 4px 15px var(--color-sombra); /* Sombra en hover */
+}
+
+.obra:nth-child(odd) {
+    background-color: #f2f2f2; /* Color de fondo para elementos impares */
+}
+
+.obra:nth-child(even) {
+    background-color: var(--color-texto-blanco); /* Color de fondo para elementos pares */
+}
+
+/* Estilo para el párrafo en la sección intro */
+/* Estilo para la sección de introducción */
+#intro {
+    padding: 2rem; /* Espaciado interno */
+    text-align: center; /* Centrar texto */
+    background-color: #faf3e0; /* Color de fondo suave */
+    margin-bottom: 3rem; /* Espacio inferior para separar de la galería */
+}
+#intro p {
+    font-size: 1.2rem; /* Ajusta el tamaño del texto */
+    padding: 2rem; /* Espaciado alrededor del texto */
+    background-color: var(--color-texto-blanco); /* Color de fondo suave para el párrafo */
+    border-left: 5px solid var(--color-secundario); /* Línea decorativa a la izquierda */
+    box-shadow: 0 2px 5px var(--color-sombra); /* Sombra suave */
+}
+
+#intro p::first-line {
+    font-weight: bold;
+    color: var(--color-secundario); /* Color de la primera línea */
+}
+
+#intro p::first-letter {
+    font-size: 2em;
+    color: var(--color-secundario); /* Color de la primera letra */
+    font-weight: bold;
+}
+
+.description::first-letter {
+    color: black; /* Color de la primera letra */
+    font-weight: bold; /* Hacerla negrita */
+}
+
+.description {
+    font-size: 1rem; /* Tamaño de fuente */
+    font-family: 'Georgia', serif; /* Tipo de letra */
+    text-align: center; /* Alinear texto al centro */
+    margin-top: 0.5rem; /* Espacio superior */
+    margin-bottom: 1rem; /* Espacio inferior */
+    line-height: 1.4; /* Altura de línea */
+    background-color: var(--color-texto-blanco); /* Color de fondo */
+    padding: 0.5rem; /* Espacio interior */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 1px 3px var(--color-sombra); /* Sombra suave */
+}
+
+/* Footer */
+#main-footer {
+    background-color: var(--color-principal); /* Color de fondo del footer */
+    color: var(--color-texto-blanco); /* Color del texto del footer */
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: auto; /* Asegura que el footer se empuje hacia abajo */
+    box-shadow: 0 -2px 5px var(--color-sombra); /* Sombra superior */
+}
+
+/* Estilo para la sección de contacto */
+#contact {
+    text-align: center; /* Centrar texto dentro de la sección */
+    margin: 2rem; /* Espaciado alrededor de la sección */
+}
+
+/* Estilo del formulario */
+form {
+    display: inline-block; /* Permite centrar el formulario */
+    background-color: var(--color-texto-blanco); /* Fondo blanco */
+    padding: 2rem; /* Espaciado interior */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px var(--color-sombra); /* Sombra suave */
+    max-width: 500px; /* Ancho máximo del formulario */
+    width: 100%; /* Ancho completo */
+}
+
+/* Estilo de los labels y inputs */
+label {
+    display: block; /* Hacer que los labels ocupen toda la línea */
+    margin: 1rem 0 0.5rem; /* Espacio alrededor de los labels */
+    font-weight: bold; /* Negrita para los labels */
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%; /* Hacer que los inputs y textarea ocupen el 100% del ancho */
+    padding: 0.5rem; /* Espaciado interno */
+    margin-bottom: 1rem; /* Espacio inferior */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de fuente */
+}
+
+/* Estilo del botón de envío */
+input[type="submit"] {
+    background-color: var(--color-secundario); /* Color de fondo del botón */
+    color: var(--color-texto-blanco); /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 0.75rem 1.5rem; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave para el color */
+}
+
+input[type="submit"]:hover {
+    background-color: #e55a50; /* Color de fondo del botón al pasar el ratón*/
+}
